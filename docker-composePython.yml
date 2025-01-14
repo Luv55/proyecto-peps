@@ -1,4 +1,5 @@
-version: '3'
+version: '3.8'
+
 services:
   mariadb:
     image: mariadb
@@ -11,19 +12,23 @@ services:
       MARIADB_DATABASE: PEPS
     volumes:
       - ./mariadb_data:/var/lib/mysql
-      - ./Peliculas.sql://docker-entrypoint-initdb.d/Peliculas.sql
-
+      - ./Peliculas.sql:/docker-entrypoint-initdb.d/Peliculas.sql
+    ports:
+      - "3306:3306"
     user: mysql
+
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin
     restart: always
     environment:
       - PMA_HOST=mariadb
+      - MARIADB_ROOT_PASSWORD=1234
     ports:
       - 9093:80
     depends_on:
       - mariadb
+
   python:
     build: .
     container_name: python
@@ -38,4 +43,4 @@ services:
     ports:
       - 9094:8080
     depends_on:
-        - mariadb
+      - mariadb
