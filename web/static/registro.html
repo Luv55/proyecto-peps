@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APP PEPS</title>
-    <style>
-        .error{
-            display: none;
-            color: red;
-        }
-    </style>
+    <title>Registro de Usuario - APP PEPS</title>
+    <!-- Referenciamos el archivo CSS -->
+    <link rel="stylesheet" href="registro.css">
     <script>
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -44,11 +40,20 @@
     </script>
 </head>
 <body>
-    <h1>REGISTRO DEL SISTEMA</h1>
-    <label>Usuario</label><input type="text" name="username" id="username"><br>
-    <label>Clave</label><input type="password" name="password" id="password"><br>
-    <label>Perfil</label><input type="text" disabled name="profile" id="profile" value="normal"><br>
-    <label class="error">Usuario ya existe</label>
-    <button type="button" onclick="conectar()">ENVIAR</button>
+    <div class="container">
+        <h1>Registro del Sistema</h1>
+        <label for="username">Usuario</label>
+        <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+        
+        <label for="password">Clave</label>
+        <input type="password" id="password" name="password" placeholder="Ingrese su clave" required>
+        
+        <label for="profile">Perfil</label>
+        <input type="text" id="profile" name="profile" value="normal" disabled>
+        
+        <div class="error">Usuario ya existe</div>
+        
+        <button type="button" onclick="conectar()">Enviar</button>
+    </div>
 </body>
 </html>
