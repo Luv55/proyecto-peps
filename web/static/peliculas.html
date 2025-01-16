@@ -10,24 +10,27 @@
         onload=function(){
             pedirPeliculas();
         }
-        function pintarPeliculas(lista){
-            let tbody=document.getElementsByTagName("tbody")[0];
-            tbody.innerHTML="";
-            lista.forEach(pelicula => {
-                tbody.innerHTML+=`<tr>
-                        <td><img src="${pelicula.foto}" width="70"></td>
-                        <td>${pelicula.nombre}</td>
-                        <td>${pelicula.descripcion}</td>
-                        <td>${pelicula.precio}</td>
-                        <td>
-                            <a href="/static/editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
-                        </td>
-                        <td>
-                            <button class="button is-danger" onclick="eliminarPelicula(${pelicula.id})">Eliminar</button>
-                        </td>
-            </tr>`                            
-            });
-        }
+        function pintarPeliculas(lista) {
+    let tbody = document.getElementsByTagName("tbody")[0];
+    tbody.innerHTML = "";
+    lista.forEach(pelicula => {
+        // Calcula el precio con IVA (21%)
+        const precioConIva = pelicula.precio * 1.21; // Calcula el precio total con IVA
+        tbody.innerHTML += `<tr>
+            <td><img src="${pelicula.foto}" width="70"></td>
+            <td>${pelicula.nombre}</td>
+            <td>${pelicula.descripcion}</td>
+            <td>${pelicula.precio.toFixed(2)} (Sin IVA)</td>
+            <td>${precioConIva.toFixed(2)} (Con IVA)</td>
+            <td>
+                <a href="/static/editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
+            </td>
+            <td>
+                <button class="button is-danger" onclick="eliminarPelicula(${pelicula.id})">Eliminar</button>
+            </td>
+        </tr>`;
+    });
+}
         function pedirPeliculas(){
             var requestOptions = {
                 method: 'GET'
@@ -121,7 +124,8 @@
                             <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
-                            <th>Precio</th>
+                            <th>Precio sin IVA</th>
+                            <th>Precio con IVA</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
