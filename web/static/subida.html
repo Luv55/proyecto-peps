@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Subida y Visualización de Archivos</title>
+    <link rel="stylesheet" href="subida.css">
     <script>
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -56,14 +57,29 @@
     </script>
 </head>
 <body>
-    <h1>SUBIR UN ARCHIVO</h1>
-        <label>Nombre archivo</label><input type="text" name="nombre" id="nombre"><br>
-        <label>Archivo</label><input type="file" name="fichero" id="fichero"><br>
-        <button type="button" onclick="enviarArchivo()">ENVIAR</button><br>
-    <h1>VER CONTENIDO DE UN ARCHIVO</h1>
-    <label>Nombre archivo</label><input type="text" name="nombreArchivo" id="nombreArchivo"><br>
-    <button type="button" onclick="verArchivo()">Ver</button><br>
-    <label>Contenido archivo</label><textarea id="contenidoArchivo"></textarea><br>
+    <div class="container">
+        <h1>Subir un Archivo</h1>
+        <div class="form-group">
+            <label for="nombre">Nombre del archivo</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre del archivo">
+        </div>
+        <div class="form-group">
+            <label for="fichero">Archivo</label>
+            <input type="file" name="fichero" id="fichero">
+        </div>
+        <button type="button" onclick="enviarArchivo()">Enviar</button>
 
+        <h1>Ver Contenido de un Archivo</h1>
+        <div class="form-group">
+            <label for="nombreArchivo">Nombre del archivo</label>
+            <input type="text" name="nombreArchivo" id="nombreArchivo" placeholder="Nombre del archivo a buscar">
+        </div>
+        <button type="button" onclick="verArchivo()">Ver</button>
+
+        <div class="form-group">
+            <label for="contenidoArchivo">Contenido del archivo</label>
+            <textarea id="contenidoArchivo" readonly></textarea>
+        </div>
+    </div>
 </body>
 </html>
