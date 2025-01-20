@@ -18,6 +18,15 @@ services:
     networks:
       - my_network
 
+  apache:
+    build: ./apache
+    container_name: apache
+    ports:
+      - 7777:80
+    restart: unless-stopped
+    volumes:
+      - /static:/var/www/html:rw
+
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin
@@ -36,6 +45,7 @@ services:
     build: .
     container_name: python
     environment:
+      PYTHONBUFFERED: 1
       DB_USERNAME: root
       DB_PASSWORD: 1234
       DB_DATABASE: PEPS
@@ -49,6 +59,7 @@ services:
       - mariadb
     networks:
       - my_network
+    
 
 volumes:
   mariadb_data:
@@ -56,3 +67,4 @@ volumes:
 networks:
   my_network:
 
+ 
