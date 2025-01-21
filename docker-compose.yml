@@ -13,8 +13,6 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./Peliculas.sql:/docker-entrypoint-initdb.d/Peliculas.sql
-    ports:
-      - "3306:3306"
     networks:
       - my_network
 
@@ -25,8 +23,10 @@ services:
       - 7777:80
     restart: unless-stopped
     volumes:
-      - ./static:/var/www/html:rw
-
+      - ./apache/static:/var/www/html:rw
+    networks:
+      - my_network
+      
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin
@@ -53,8 +53,6 @@ services:
       DB_PORT: 3306
       PORT: 8080
       HOST: 0.0.0.0
-    ports:
-      - "9094:8080"
     depends_on:
       - mariadb
     networks:

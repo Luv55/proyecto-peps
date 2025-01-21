@@ -23,7 +23,7 @@
             <td>${pelicula.precio.toFixed(2)} (Sin IVA)</td>
             <td>${precioConIva.toFixed(2)} (Con IVA)</td>
             <td>
-                <a href="/static/editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
+                <a href="/editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
             </td>
             <td>
                 <button class="button is-danger" onclick="eliminarPelicula(${pelicula.id})">Eliminar</button>
@@ -36,7 +36,7 @@
                 method: 'GET'
             };
 
-            fetch("/peliculas", requestOptions)
+            fetch("/api/peliculas", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status){
@@ -55,7 +55,7 @@
                 method: 'DELETE'
             };
 
-            fetch("/peliculas/"+id, requestOptions)
+            fetch("/api/peliculas/"+id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
@@ -74,11 +74,11 @@
             var requestOptions = {
                 method: 'GET'
             };
-            fetch("/logout", requestOptions)
+            fetch("/api/logout", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
-                        location.href="/static/index.html";
+                        location.href="/index.html";
                     } else {
                         alert("No se ha podido cerrar sesión")
                     }
@@ -103,8 +103,8 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/static/peliculas.html">Peliculas</a>
-                <a class="navbar-item" href="/static/subida.html">Archivos</a>
+                <a class="navbar-item" href="/peliculas.html">Peliculas</a>
+                <a class="navbar-item" href="/subida.html">Archivos</a>
                 <a class="navbar-item" href="javascript:cerrarSesion()">Cerrar sesion</a>
             </div>
             <div class="navbar-end">
@@ -117,7 +117,7 @@
         <div class="columns">
             <div class="column">
                 <h3 class="is-size-3">Peliculas</h3>
-                <a href="/static/agregar_pelicula.html" class="button is-success">Agregar</a>
+                <a href="/agregar_pelicula.html" class="button is-success">Agregar</a>
                 <table class="table">
                     <thead>
                         <tr>

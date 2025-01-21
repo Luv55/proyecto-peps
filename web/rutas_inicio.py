@@ -1,9 +1,11 @@
 from __future__ import print_function
 from __main__ import app
 from flask import request,session
+from pymysql import Error
 from bd import obtener_conexion
 import json
 import sys
+import traceback
 
 @app.route("/login",methods=['POST'])
 def login():
@@ -23,11 +25,12 @@ def login():
                 ret = {"status": "ERROR","mensaje":"Usuario/clave erroneo" }
             else:
                 ret = {"status": "OK" }
-                session["usuario"]=username
-                session["perfil"]=usuario[0]
+                #session["usuario"]=username
+                #session["perfil"]=usuario[0]
             code=200
-        except:
-            print("Excepcion al validar al usuario")   
+        except Error as err:
+            print("Excepcion al validar al usuario ")
+            #traceback.print_exc()   
             ret={"status":"ERROR"}
             code=500
     else:
