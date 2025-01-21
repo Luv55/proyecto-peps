@@ -1,5 +1,5 @@
 import unittest
-from iva import calculariva  
+from controlador_peliculas import calculariva  
 
 class TestCalcularIva(unittest.TestCase):
     def test_calcular_iva(self):

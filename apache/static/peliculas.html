@@ -12,18 +12,17 @@
             pedirPeliculas();
         }
         function pintarPeliculas(lista) {
-            console.log(lista);
             let tbody = document.getElementsByTagName("tbody")[0];
             tbody.innerHTML = "";
             lista.forEach(pelicula => {
                 // Calcula el precio con IVA (21%)
-                //const precioConIva = pelicula.precio * 1.21; // Calcula el precio total con IVA
+                const precioConIva = pelicula.precio + pelicula.iva; // Calcula el precio total con IVA
                 tbody.innerHTML += `<tr>
             <td><img src="${pelicula.foto}" width="70"></td>
             <td>${pelicula.nombre}</td>
             <td>${pelicula.descripcion}</td>
             <td>${pelicula.precio.toFixed(2)} (Sin IVA)</td>
-            <td>${pelicula.precioConIva.toFixed(2)} (Con IVA)</td>
+            <td>${precioConIva.toFixed(2)} (Con IVA)</td>
             <td>
                 <a href="/editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
             </td>

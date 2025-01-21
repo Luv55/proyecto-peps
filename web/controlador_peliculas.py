@@ -27,7 +27,7 @@ def calculariva(importe):
     :param importe: El precio base sin IVA.
     :return: El IVA calculado.
     """
-    return importe * 1.21
+    return importe * 0.21
 
 def convertir_pelicula_a_json(pelicula):
     
@@ -37,7 +37,7 @@ def convertir_pelicula_a_json(pelicula):
     d['descripcion'] = pelicula[2]
     d['precio'] = pelicula[3]
     d['foto'] = pelicula[4]
-    d['precioConIva'] = calculariva(int(pelicula[3]))
+    d['iva'] = calculariva(int(pelicula[3]))
     return d
 
 def obtener_peliculas():
