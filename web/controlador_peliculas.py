@@ -21,13 +21,23 @@ def insertar_pelicula(nombre, descripcion, precio,foto):
         code=500
     return ret,code
 
+def calculariva(importe):
+    """
+    Calcula el IVA (21%) de un importe dado.
+    :param importe: El precio base sin IVA.
+    :return: El IVA calculado.
+    """
+    return importe * 1.21
+
 def convertir_pelicula_a_json(pelicula):
+    
     d = {}
     d['id'] = pelicula[0]
     d['nombre'] = pelicula[1]
     d['descripcion'] = pelicula[2]
     d['precio'] = pelicula[3]
     d['foto'] = pelicula[4]
+    d['precioConIva'] = calculariva(int(pelicula[3]))
     return d
 
 def obtener_peliculas():
