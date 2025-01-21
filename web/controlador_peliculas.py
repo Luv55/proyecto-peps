@@ -54,7 +54,7 @@ def obtener_pelicula_por_id(id):
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
             #cursor.execute("SELECT id, nombre, descripcion, precio,foto FROM peliculas WHERE id = %s", (id,))
-            cursor.execute("SELECT id, nombre, descripcion, precio,foto FROM peliculas WHERE id =" + id)
+            cursor.execute("SELECT id, nombre, descripcion, precio,foto FROM peliculas WHERE id = %s", (id,))
             pelicula = cursor.fetchone()
             if pelicula is not None:
                 peliculajson = convertir_pelicula_a_json(pelicula)

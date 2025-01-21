@@ -27,12 +27,12 @@
                 body: datos
             };
 
-            fetch("/peliculas", requestOptions)
+            fetch("/api/peliculas", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
                         alert("pelicula guardado")
-                        location.href="/static/peliculas.html"
+                        location.href="/peliculas.html"
                     } else {
                         alert("La pelicula no ha podido ser guardado")
                     }
@@ -56,7 +56,7 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/static/peliculas">peliculas</a>
+                <a class="navbar-item" href="/peliculas">peliculas</a>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
@@ -77,7 +77,7 @@
                 <label for="foto">Foto</label>
                 <input required type="text" class="input" placeholder="Foto" name="foto" id="foto">
                 <button type="button" onclick="guardar()" class="button is-success mt-2">Guardar</button>
-                <a href="/static/pelicula.html" class="button is-primary mt-2">Volver</a>
+                <a href="/pelicula.html" class="button is-primary mt-2">Volver</a>
             </form>
         </div>
     </div>
