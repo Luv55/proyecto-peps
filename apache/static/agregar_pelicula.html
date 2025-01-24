@@ -31,7 +31,7 @@
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
-                        alert("pelicula guardado")
+                        alert("pelicula guardada")
                         location.href="/peliculas.html"
                     } else {
                         alert("La pelicula no ha podido ser guardado")
@@ -39,7 +39,7 @@
                 })
                 .catch(error => {
                     console.log('error', error);
-                    alert("Se ha producido un error y el pelicula no ha podido ser guardado")
+                    alert("Se ha producido un error y el pelicula no ha podido ser guardada")
                 });
         }
     </script>
@@ -56,7 +56,7 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="/peliculas">peliculas</a>
+                <a class="navbar-item" href="/peliculas.html">Peliculas</a>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
