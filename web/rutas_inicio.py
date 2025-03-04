@@ -17,8 +17,8 @@ def login():
         try:
             conexion = obtener_conexion()
             with conexion.cursor() as cursor:
-                 #cursor.execute("SELECT perfil FROM usuarios WHERE usuario = %s and clave= %s",(username,password))
-                 cursor.execute("SELECT perfil FROM usuarios WHERE usuario = '" + username +"' and clave= '" + password + "'")
+                 cursor.execute("SELECT perfil FROM usuarios WHERE usuario = %s and clave= %s",(username,password))
+                 #cursor.execute("SELECT perfil FROM usuarios WHERE usuario = '" + username +"' and clave= '" + password + "'")
                  usuario = cursor.fetchone()
             conexion.close()
             if usuario is None:

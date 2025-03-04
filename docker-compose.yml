@@ -20,7 +20,7 @@ services:
     build: ./apache
     container_name: apache
     ports:
-      - 7777:80
+      - 6106:80
     restart: unless-stopped
     volumes:
       - ./apache/static:/var/www/html:rw
@@ -35,7 +35,7 @@ services:
       - PMA_HOST=mariadb
       - MARIADB_ROOT_PASSWORD=1234
     ports:
-      - "9093:80"
+      - "7101:80"
     depends_on:
       - mariadb
     networks:
