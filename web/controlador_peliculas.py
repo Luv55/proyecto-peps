@@ -1,6 +1,7 @@
 from __future__ import print_function
 from bd import obtener_conexion
 import sys
+from funciones_auxiliares import sanitize_input
 
 def insertar_pelicula(nombre, descripcion, precio,foto):
     try:
@@ -32,12 +33,12 @@ def calculariva(importe):
 def convertir_pelicula_a_json(pelicula):
     
     d = {}
-    d['id'] = pelicula[0]
-    d['nombre'] = pelicula[1]
-    d['descripcion'] = pelicula[2]
-    d['precio'] = pelicula[3]
-    d['foto'] = pelicula[4]
-    d['iva'] = calculariva(int(pelicula[3]))
+    d['id'] = sanitize_input(pelicula[0])
+    d['nombre'] = sanitize_input(pelicula[1])
+    d['descripcion'] = sanitize_input(pelicula[2])
+    d['precio'] = sanitize_input(pelicula[3])
+    d['foto'] = sanitize_input(pelicula[4])
+    d['iva'] = sanitize_input(calculariva(int(pelicula[3])))
     return d
 
 def obtener_peliculas():

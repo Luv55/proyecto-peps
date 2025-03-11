@@ -12,6 +12,11 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, Length, Regexp
 
+class LoginForm(FlaskForm): 
+    username = StringField("Usuario", validators=[ DataRequired(message="El usuario es obligatorio"), Length(min=4, max=20, message="El usuario debe tener entre 4 y 20 caracteres"), Regexp(r"^[a-zA-Z0-9_]+$", message="El usuario solo puede contener letras, números y guiones bajos"), ])
+    password = PasswordField("Contraseña", validators=[ DataRequired(message="La contraseña es obligatoria"), Length(min=6, message="La contraseña debe tener al menos 6 caracteres") ])
+
+
 @app.route("/login",methods=['POST'])
 def login():
     content_type = request.headers.get('Content-Type')
@@ -60,6 +65,7 @@ def registro():
                  usuario = cursor.fetchone()
                  if usuario is None:
                      print("INSERT INTO usuarios(usuario,clave,perfil) VALUES('"+ username +"','"+  password+"','"+ perfil+"')") 
+                     print("INSERT INTO usuarios(usuario, clave, perfil) VALUES (%s, %s, %s)", (username, password, perfil))
                      cursor.execute("INSERT INTO usuarios(usuario,clave,perfil) VALUES('"+ username +"','"+  password+"','"+ perfil+"')")
                      if cursor.rowcount == 1:
                          conexion.commit()
