@@ -6,14 +6,20 @@ from bd import obtener_conexion
 import json
 import sys
 import traceback
+import bleach
+from funciones_auxiliares import sanitize_input
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
+from wtforms.validators import DataRequired, Length, Regexp
 
 @app.route("/login",methods=['POST'])
 def login():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         pelicula_json = request.json
-        username = pelicula_json['username']
-        password = pelicula_json['password']
+        username = sanitize_input(pelicula_json['username'])
+        password = sanitize_input(pelicula_json['password'])
+        username = 
         try:
             conexion = obtener_conexion()
             with conexion.cursor() as cursor:
@@ -43,14 +49,14 @@ def registro():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         pelicula_json = request.json
-        username = pelicula_json['username']
-        password = pelicula_json['password']
-        perfil = pelicula_json['profile']
+        username = sanitize_input(pelicula_json['username'])
+        password = sanitize_input(pelicula_json['password'])
+        perfil = sanitize_input(pelicula_json['profile'])
         try:
             conexion = obtener_conexion()
             with conexion.cursor() as cursor:
-                 #cursor.execute("SELECT perfil FROM usuarios WHERE usuario = %s and clave= %s",(username,password))
-                 cursor.execute("SELECT perfil FROM usuarios WHERE usuario = '" + username +"' and clave= '" + password + "'")
+                 cursor.execute("SELECT perfil FROM usuarios WHERE usuario = %s and clave= %s",(username,password))
+                 #cursor.execute("SELECT perfil FROM usuarios WHERE usuario = '" + username +"' and clave= '" + password + "'")
                  usuario = cursor.fetchone()
                  if usuario is None:
                      print("INSERT INTO usuarios(usuario,clave,perfil) VALUES('"+ username +"','"+  password+"','"+ perfil+"')") 

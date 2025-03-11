@@ -53,6 +53,8 @@ services:
       DB_PORT: 3306
       PORT: 8080
       HOST: 0.0.0.0
+      SECRET_KEY: 'you-will-never-guess'
+      DEBUG: True
     depends_on:
       - mariadb
     networks:
