@@ -35,7 +35,7 @@ services:
       - PMA_HOST=mariadb
       - MARIADB_ROOT_PASSWORD=1234
     ports:
-      - "7101:80"
+      - "7106:80"
     depends_on:
       - mariadb
     networks:
