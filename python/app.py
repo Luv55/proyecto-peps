@@ -80,7 +80,7 @@ import rutas_upload
 
 import rutas_verfichero
 
-import python.rutas_peliculas as rutas_peliculas
+import rutas_peliculas
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT'))

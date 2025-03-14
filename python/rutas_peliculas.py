@@ -1,7 +1,7 @@
 from flask import request, session, make_response
 import json
 from __main__ import app
-import python.controlador_peliculas as controlador_peliculas
+import controlador_peliculas as controlador_peliculas
 from funciones_auxiliares import Encoder, sanitize_input, prepare_response_extra_headers,validar_session_admin,validar_session_normal
 
 @app.route("/peliculas",methods=["GET"])

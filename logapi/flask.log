@@ -8,3 +8,16 @@
  * Running on http://127.0.0.1:8080
  * Running on http://172.24.0.3:8080
 [2025-03-14 09:58:40,168] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-03-14 11:23:56,154] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.48.4:8080
+[2025-03-14 11:23:56,154] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-03-14 11:24:20,636] INFO in controlador_usuarios: Nuevo usuario creado
+[2025-03-14 11:24:20,636] INFO in app: path: /registro | method: POST | status: 200 OK | size: 16 >>> 192.168.48.5
+[2025-03-14 11:24:20,636] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:24:20] "POST /registro HTTP/1.1" 200 -
+[2025-03-14 11:24:30,534] INFO in controlador_usuarios: Acceso usuario marki correcto
+[2025-03-14 11:24:30,537] INFO in app: path: /login | method: POST | status: 200 OK | size: 145 >>> 192.168.48.5
+[2025-03-14 11:24:30,538] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:24:30] "POST /login HTTP/1.1" 200 -
+[2025-03-14 11:24:30,781] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 192.168.48.5
+[2025-03-14 11:24:30,782] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:24:30] "GET /peliculas HTTP/1.1" 200 -
