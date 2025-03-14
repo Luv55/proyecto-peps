@@ -34,16 +34,16 @@ def guardar_pelicula():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         pelicula_json = request.json
-        if "nombre" in pelicula_json and "descripcion" in pelicula_json and "foto" in pelicula_json and "ingredientes" in pelicula_json:
+        if "nombre" in pelicula_json and "descripcion" in pelicula_json and "foto" in pelicula_json and "reparto" in pelicula_json:
             nombre = sanitize_input(pelicula_json["nombre"])
             descripcion = sanitize_input(pelicula_json["descripcion"])
             precio = pelicula_json["precio"]
             foto = sanitize_input(pelicula_json["foto"])
-            ingredientes = sanitize_input(pelicula_json["ingredientes"])
-            if isinstance(nombre, str) and isinstance(descripcion, str) and isinstance(foto, str) and isinstance(ingredientes, str) and len(nombre)<128 and len(descripcion)<512 and len(foto)<128 and len(ingredientes)<512:
+            reparto = sanitize_input(pelicula_json["reparto"])
+            if isinstance(nombre, str) and isinstance(descripcion, str) and isinstance(foto, str) and isinstance(reparto, str) and len(nombre)<128 and len(descripcion)<512 and len(foto)<128 and len(reparto)<512:
                 if (validar_session_admin()):
                     precio = float(precio)
-                    respuesta,code=controlador_peliculas.insertar_pelicula(nombre, descripcion,precio,foto,ingredientes)
+                    respuesta,code=controlador_peliculas.insertar_pelicula(nombre, descripcion,precio,foto,reparto)
                 else: 
                     respuesta={"status":"Forbidden"}
                     code=403
@@ -74,18 +74,18 @@ def actualizar_pelicula():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
         pelicula_json = request.json
-        if "id" in pelicula_json and "nombre" in pelicula_json and "descripcion" in pelicula_json and "foto" in pelicula_json and "ingredientes" in pelicula_json:
+        if "id" in pelicula_json and "nombre" in pelicula_json and "descripcion" in pelicula_json and "foto" in pelicula_json and "reparto" in pelicula_json:
             id = request.json["id"]
             nombre = sanitize_input(pelicula_json["nombre"])
             descripcion = sanitize_input(pelicula_json["descripcion"])
             precio = pelicula_json["precio"]
             foto = sanitize_input(pelicula_json["foto"])
-            ingredientes = sanitize_input(pelicula_json["ingredientes"])
-            if id.isnumeric() and isinstance(nombre, str) and isinstance(descripcion, str) and precio.isnumeric() and isinstance(foto, str) and isinstance(ingredientes, str) and len(id)<8 and len(nombre)<128 and len(descripcion)<512 and len(foto)<128 and len(ingredientes)<512:
+            reparto = sanitize_input(pelicula_json["reparto"])
+            if id.isnumeric() and isinstance(nombre, str) and isinstance(descripcion, str) and precio.isnumeric() and isinstance(foto, str) and isinstance(reparto, str) and len(id)<8 and len(nombre)<128 and len(descripcion)<512 and len(foto)<128 and len(reparto)<512:
                 id=int(id)
                 precio=float(precio)
                 if (validar_session_normal()):
-                    respuesta,code=controlador_peliculas.actualizar_pelicula(id,nombre,descripcion,precio,foto,ingredientes)
+                    respuesta,code=controlador_peliculas.actualizar_pelicula(id,nombre,descripcion,precio,foto,reparto)
                 else: 
                     respuesta={"status":"Forbidden"}
                     code=403

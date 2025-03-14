@@ -22,13 +22,13 @@
         function guardar(){
             let nombre=document.getElementById("nombre").value;
             let descripcion=document.getElementById("descripcion").value;
-            let ingredientes =document.getElementById("ingredientes").value;
+            let reparto =document.getElementById("reparto").value;
             let precio=document.getElementById("precio").value;
             let foto=document.getElementById("foto").value;
             let datos=JSON.stringify({
                 "nombre":nombre,
                 "descripcion":descripcion,
-                "ingredientes":ingredientes,
+                "reparto":reparto,
                 "precio":precio,
                 "foto":foto
             });
@@ -83,8 +83,8 @@
                 <input required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
                 <label for="descripcion">Descripcion</label>
                 <input required type="text" class="input" placeholder="Descripcion" name="descripcion" id="descripcion">
-                <label for="ingredientesS">Ingredientes</label>
-                <input required type="text" class="input" placeholder="Ingredientes" name="ingredientes" id="ingredientes">
+                <label for="repartoS">Reparto</label>
+                <input required type="text" class="input" placeholder="Reparto" name="reparto" id="reparto">
                 <label for="precio">Precio</label>
                 <input required type="number" class="input" placeholder="Precio" name="precio" id="precio">
                 <label for="foto">Foto</label>

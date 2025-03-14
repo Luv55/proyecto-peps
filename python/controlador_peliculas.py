@@ -3,12 +3,12 @@ from __main__ import app
 from funciones_auxiliares import sanitize_input
 import sys
 
-def insertar_pelicula(nombre, descripcion, precio,foto,ingredientes):
+def insertar_pelicula(nombre, descripcion, precio,foto,reparto):
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("INSERT INTO peliculas(nombre, descripcion, precio,foto,ingredientes) VALUES (%s, %s, %s,%s,%s)",
-                       (nombre, descripcion, precio,foto,ingredientes))
+            cursor.execute("INSERT INTO peliculas(nombre, descripcion, precio,foto,reparto) VALUES (%s, %s, %s,%s,%s)",
+                       (nombre, descripcion, precio,foto,reparto))
             if cursor.rowcount == 1:
                 ret={"status": "OK" }
             else:
@@ -29,14 +29,14 @@ def convertir_pelicula_a_json(pelicula):
     d['descripcion'] = sanitize_input(pelicula[2])
     d['precio'] = pelicula[3]
     d['foto'] = sanitize_input(pelicula[4])
-    d['ingredientes']=sanitize_input(pelicula[5])
+    d['reparto']=sanitize_input(pelicula[5])
     return d
 
 def obtener_peliculas():
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("SELECT id, nombre, descripcion, precio,foto,ingredientes FROM peliculas")
+            cursor.execute("SELECT id, nombre, descripcion, precio,foto,reparto FROM peliculas")
             peliculas = cursor.fetchall()
             peliculasjson=[]
             if peliculas:
@@ -55,7 +55,7 @@ def obtener_pelicula_por_id(id):
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("SELECT id, nombre, descripcion, precio,foto,ingredientes FROM peliculas WHERE id = %s LIMIT 1", (id,))
+            cursor.execute("SELECT id, nombre, descripcion, precio,foto,reparto FROM peliculas WHERE id = %s LIMIT 1", (id,))
             pelicula = cursor.fetchone()
             if pelicula is not None:
                 peliculajson = convertir_pelicula_a_json(pelicula)
@@ -85,12 +85,12 @@ def eliminar_pelicula(id):
         code=500
     return ret,code
 
-def actualizar_pelicula(id, nombre, descripcion, precio, foto,ingredientes):
+def actualizar_pelicula(id, nombre, descripcion, precio, foto,reparto):
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("UPDATE peliculas SET nombre = %s, descripcion = %s, precio = %s, foto=%s, ingredientes=%s WHERE id = %s",
-                       (nombre, descripcion, precio, foto,ingredientes,id))
+            cursor.execute("UPDATE peliculas SET nombre = %s, descripcion = %s, precio = %s, foto=%s, reparto=%s WHERE id = %s",
+                       (nombre, descripcion, precio, foto,reparto,id))
             if cursor.rowcount == 1:
                 ret={"status": "OK" }
             else:
