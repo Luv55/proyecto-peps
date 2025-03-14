@@ -21,3 +21,5 @@
 [2025-03-14 11:24:30,538] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:24:30] "POST /login HTTP/1.1" 200 -
 [2025-03-14 11:24:30,781] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 192.168.48.5
 [2025-03-14 11:24:30,782] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:24:30] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-14 11:25:52,624] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 192.168.48.5
+[2025-03-14 11:25:52,625] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:25:52] "GET /peliculas HTTP/1.1" 200 -
