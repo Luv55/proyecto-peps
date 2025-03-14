@@ -1,70 +1,76 @@
-version: '3.8'
-
-services:
-  mariadb:
-    image: mariadb
-    container_name: mariadb
-    restart: always
-    environment:
-      MARIADB_ROOT_PASSWORD: 1234
-      MARIADB_USER: agente
-      MARIADB_USER_PASSWORD: 1234
-      MARIADB_DATABASE: PEPS
-    volumes:
-      - mariadb_data:/var/lib/mysql
-      - ./Peliculas.sql:/docker-entrypoint-initdb.d/Peliculas.sql
-    networks:
-      - my_network
-
-  apache:
-    build: ./apache
-    container_name: apache
-    ports:
-      - 6106:80
-    restart: unless-stopped
-    volumes:
-      - ./apache/static:/var/www/html:rw
-    networks:
-      - my_network
-      
-  phpmyadmin:
-    image: phpmyadmin
-    container_name: phpmyadmin
-    restart: always
-    environment:
-      - PMA_HOST=mariadb
-      - MARIADB_ROOT_PASSWORD=1234
-    ports:
-      - "7106:80"
-    depends_on:
-      - mariadb
-    networks:
-      - my_network
-
+version: '3'
+services: 
   python:
     build: .
-    container_name: python
-    environment:
-      PYTHONBUFFERED: 1
-      DB_USERNAME: root
-      DB_PASSWORD: 1234
-      DB_DATABASE: PEPS
-      DB_HOST: mariadb
-      DB_PORT: 3306
-      PORT: 8080
-      HOST: 0.0.0.0
-      SECRET_KEY: 'you-will-never-guess'
-      DEBUG: True
+    container_name: python0
+    restart: always
     depends_on:
-      - mariadb
-    networks:
-      - my_network
-    
+      - db
+    links:
+      - db
+    env_file: .env    
+    environment:
+       DB_PORT: 3306
+       DB_HOST: db
+       DB_DATABASE: ciber
+       DB_USERNAME: ${DB_USERNAME}
+       DB_PASSWORD: ${DB_PASSWORD}
+       SECRET_KEY: ${SECRET_KEY}
+       WTF_CSRF_SECRET_KEY: ${WTF_CSRF_SECRET_KEY}       
+       HOST: "0.0.0.0"
+       PORT: 8080
+    volumes:
+      - ./logapi/:/app/logs
+
+  db:
+    image: mariadb:10.3
+    container_name: db0
+    restart: always
+    environment:
+      MYSQL_DATABASE: ciber
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+    volumes:
+     - db0:/var/lib/mysql
+     - ./Chuches.sql:/docker-entrypoint-initdb.d/setup.sql
+    secrets:
+      - db_root_password
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin0
+    restart: always
+    ports:
+      - 6100:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: db
+    links:
+      - db
+    depends_on:
+      - db
+  
+  apache-waf:
+    build: ./apache/ #./waf/ en un futuro
+    ports:
+      - 443:443
+      - 6000:80
+    depends_on:
+      - python
+    links:
+      - python
+    volumes:
+      - ./apache/static:/var/www/html # en el futuro se quita
+      - ./logwaf:/var/log/apache2
+secrets:
+  db_root_user:
+    file: ./secretos/db_root_user.txt
+  db_root_password:
+    file: ./secretos/db_root_password.txt
+  db_user_username:
+    file: ./secretos/db_user_username.txt
+  db_user_password:
+    file: ./secretos/db_user_password.txt
 
 volumes:
-  mariadb_data:
+  db0:    
 
-networks:
-  my_network:
-
- 
