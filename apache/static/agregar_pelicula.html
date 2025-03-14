@@ -10,7 +10,7 @@
         var myHeaders = new Headers();
         onload=()=>{
             if (!sessionStorage.getItem("perfil") || sessionStorage.getItem("perfil")=="normal"){
-                location.href="chuches.html"
+                location.href="s.html"
             } else {
                 myHeaders.append("Content-Type", "application/json");
                 if (sessionStorage.getItem("csrf_token")){
@@ -38,19 +38,19 @@
                 body: datos
             };
 
-            fetch("/api/chuches", requestOptions)
+            fetch("/api/peliculas", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
-                        alert("Chuche guardada")
-                        location.href="chuches.html"
+                        alert("pelicula guardada")
+                        location.href="peliculas.html"
                     } else {
-                        alert("La chuche no ha podido ser guardado")
+                        alert("La pelicula no ha podido ser guardada")
                     }
                 })
                 .catch(error => {
                     console.log('error', error);
-                    alert("Se ha producido un error y la chuche no ha podido ser guardado")
+                    alert("Se ha producido un error y la pelicula no ha podido ser guardada")
                 });
         }
     </script>
@@ -67,7 +67,7 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="chuche.html">Libros</a>
+                <a class="navbar-item" href="pelicula.html">Libros</a>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
@@ -78,7 +78,7 @@
   <section class="section">
     <div class="columns">
         <div class="column">
-            <h3 class="is-size-3">Agregar Chuche</h3>
+            <h3 class="is-size-3">Agregar pelicula</h3>
                 <label for="nombre">Nombre:</label>
                 <input required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
                 <label for="descripcion">Descripcion</label>
@@ -91,7 +91,7 @@
                 <input required type="text" class="input" placeholder="Foto" name="foto" id="foto">                
                 <input required type="file" class="input" placeholder="Archivo Foto" name="filefoto" id="filefoto">
                 <button type="button" onclick="guardar()" class="button is-success mt-2">Guardar</button>
-                <a href="chuches.html" class="button is-primary mt-2">Volver</a>
+                <a href="peliculas.html" class="button is-primary mt-2">Volver</a>
             </form>
         </div>
     </div>

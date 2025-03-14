@@ -3,13 +3,13 @@ CREATE USER 'user'@'%' IDENTIFIED BY 'userpw';
 GRANT ALL PRIVILEGES ON ciber.* TO 'user'@'%';
 FLUSH PRIVILEGES;
 USE ciber;
-CREATE TABLE chuches(
+CREATE TABLE peliculas(
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     precio DECIMAL(9,2) NOT NULL,
 	foto VARCHAR(255),
-    ingredientes VARCHAR(255)
+    reparto VARCHAR(255)
 );
 CREATE TABLE usuarios(
 	usuario VARCHAR(100) NOT NULL PRIMARY KEY,
