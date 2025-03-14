@@ -25,26 +25,26 @@
                     document.getElementById("enlaceAgregar").classList.remove("oculto");
                 }
             } 
-            pedirChuches();
+            pedirPeliculas();
         }
-        function pintarChuches(lista){
+        function pintarPeliculas(lista){
             let tbody=document.getElementsByTagName("tbody")[0];
             tbody.innerText="";
 
-            lista.forEach(chuche => {
+            lista.forEach(pelicula => {
                 let texto=`<tr>
-                        <td><img src="${chuche.foto}" width="70"></td>
-                        <td>${chuche.nombre}</td>
-                        <td>${chuche.descripcion}</td>
-                        <td>${chuche.ingredientes}</td>
-                        <td>${chuche.precio}</td>
-                        <td>${chuche.precio}</td>
+                        <td><img src="${pelicula.foto}" width="70"></td>
+                        <td>${pelicula.nombre}</td>
+                        <td>${pelicula.descripcion}</td>
+                        <td>${pelicula.ingredientes}</td>
+                        <td>${pelicula.precio}</td>
+                        <td>${pelicula.precio}</td>
                         <td>`
                 if (perfil=="admin"){
-                    texto+=`<a href="editar_chuche.html?id=${chuche.id}" class="button is-info">Editar</a>
+                    texto+=`<a href="editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
                         </td>
                         <td>
-                            <button class="button is-danger" onclick="eliminarChuche(${chuche.id})">Eliminar</button>
+                            <button class="button is-danger" onclick="eliminarPelicula(${pelicula.id})">Eliminar</button>
                         </td>`
                 } else{
                     texto+=`<td></td><td></td>`
@@ -53,45 +53,45 @@
                 tbody.innerHTML+=texto                            
             });
         }
-        function pedirChuches(){
+        function pedirPeliculas(){
             var requestOptions = {
                 method: 'GET',
                 headers: myHeaders,
             };
 
-            fetch("/api/chuches", requestOptions)
+            fetch("/api/peliculas", requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status){
                         location.href="index.html";
                     } else {
-                        pintarChuches(result);
+                        pintarPeliculas(result);
                     }
                 })
                 .catch(error => {
                     console.log('error', error);
-                    alert("Ha habido un error al recuperar las chuches. Refresque la página")
+                    alert("Ha habido un error al recuperar las peliculas. Refresque la página")
                 });
         }
-        function eliminarChuche(id){
+        function eliminarPelicula(id){
             var requestOptions = {
                 method: 'DELETE',
                 headers: myHeaders,
             };
 
-            fetch("/api/chuches/"+id, requestOptions)
+            fetch("/api/peliculas/"+id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
-                        alert("Chuche eliminado")
-                        pedirChuches();
+                        alert("Pelicula eliminado")
+                        pedirPeliculas();
                     } else {
-                        alert("La chuche no ha podido ser eliminado")
+                        alert("La pelicula no ha podido ser eliminado")
                     }
                 })
                 .catch(error => {
                     console.log('error', error);
-                    alert("Se ha producido un error y la chuche no ha podido ser eliminado")
+                    alert("Se ha producido un error y la pelicula no ha podido ser eliminado")
                 });
         }
         function cerrarSesion(){
@@ -128,7 +128,7 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="chuches.html">Libros</a>
+                <a class="navbar-item" href="peliculas.html">Libros</a>
                 <a class="navbar-item" href="subida.html">Archivos</a>
                 <a class="navbar-item" href="javascript:cerrarSesion()">Cerrar sesion</a>
             </div>
@@ -141,8 +141,8 @@
     <section class="section">
         <div class="columns">
             <div class="column">
-                <h3 class="is-size-3">Chuches</h3>
-                <a id="enlaceAgregar" href="agregar_chuche.html" class="button is-success oculto">Agregar</a>
+                <h3 class="is-size-3">Peliculas</h3>
+                <a id="enlaceAgregar" href="agregar_pelicula.html" class="button is-success oculto">Agregar</a>
                 <table class="table">
                     <thead>
                         <tr>

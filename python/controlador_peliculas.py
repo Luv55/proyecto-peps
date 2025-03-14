@@ -3,11 +3,11 @@ from __main__ import app
 from funciones_auxiliares import sanitize_input
 import sys
 
-def insertar_chuche(nombre, descripcion, precio,foto,ingredientes):
+def insertar_pelicula(nombre, descripcion, precio,foto,ingredientes):
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("INSERT INTO chuches(nombre, descripcion, precio,foto,ingredientes) VALUES (%s, %s, %s,%s,%s)",
+            cursor.execute("INSERT INTO peliculas(nombre, descripcion, precio,foto,ingredientes) VALUES (%s, %s, %s,%s,%s)",
                        (nombre, descripcion, precio,foto,ingredientes))
             if cursor.rowcount == 1:
                 ret={"status": "OK" }
@@ -22,56 +22,56 @@ def insertar_chuche(nombre, descripcion, precio,foto,ingredientes):
         code=500
     return ret,code
 
-def convertir_chuche_a_json(chuche):
+def convertir_pelicula_a_json(pelicula):
     d = {}
-    d['id'] = chuche[0]
-    d['nombre'] = sanitize_input(chuche[1])
-    d['descripcion'] = sanitize_input(chuche[2])
-    d['precio'] = chuche[3]
-    d['foto'] = sanitize_input(chuche[4])
-    d['ingredientes']=sanitize_input(chuche[5])
+    d['id'] = pelicula[0]
+    d['nombre'] = sanitize_input(pelicula[1])
+    d['descripcion'] = sanitize_input(pelicula[2])
+    d['precio'] = pelicula[3]
+    d['foto'] = sanitize_input(pelicula[4])
+    d['ingredientes']=sanitize_input(pelicula[5])
     return d
 
-def obtener_chuches():
+def obtener_peliculas():
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("SELECT id, nombre, descripcion, precio,foto,ingredientes FROM chuches")
-            chuches = cursor.fetchall()
-            chuchesjson=[]
-            if chuches:
-                for chuche in chuches:
-                    chuchesjson.append(convertir_chuche_a_json(chuche))
+            cursor.execute("SELECT id, nombre, descripcion, precio,foto,ingredientes FROM peliculas")
+            peliculas = cursor.fetchall()
+            peliculasjson=[]
+            if peliculas:
+                for pelicula in peliculas:
+                    peliculasjson.append(convertir_pelicula_a_json(pelicula))
         conexion.close()
         code=200
     except:
-        app.logger.info("Excepcion al obtener las chuches")
-        chuchesjson=[]
+        app.logger.info("Excepcion al obtener las peliculas")
+        peliculasjson=[]
         code=500
-    return chuchesjson,code
+    return peliculasjson,code
 
-def obtener_chuche_por_id(id):
-    chuchejson = {}
+def obtener_pelicula_por_id(id):
+    peliculajson = {}
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("SELECT id, nombre, descripcion, precio,foto,ingredientes FROM chuches WHERE id = %s LIMIT 1", (id,))
-            chuche = cursor.fetchone()
-            if chuche is not None:
-                chuchejson = convertir_chuche_a_json(chuche)
+            cursor.execute("SELECT id, nombre, descripcion, precio,foto,ingredientes FROM peliculas WHERE id = %s LIMIT 1", (id,))
+            pelicula = cursor.fetchone()
+            if pelicula is not None:
+                peliculajson = convertir_pelicula_a_json(pelicula)
         conexion.close()
         code=200
     except:
-        app.logger.info("Excepcion al consultar una chuche")
+        app.logger.info("Excepcion al consultar una pelicula")
         code=500
-    return chuchejson,code
+    return peliculajson,code
 
 
-def eliminar_chuche(id):
+def eliminar_pelicula(id):
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("DELETE FROM chuches WHERE id = %s", (id,))
+            cursor.execute("DELETE FROM peliculas WHERE id = %s", (id,))
             if cursor.rowcount == 1:
                 ret={"status": "OK" }
             else:
@@ -80,16 +80,16 @@ def eliminar_chuche(id):
         conexion.close()
         code=200
     except:
-        app.logger.info("Excepcion al eliminar una chuche")
+        app.logger.info("Excepcion al eliminar una pelicula")
         ret = {"status": "Failure" }
         code=500
     return ret,code
 
-def actualizar_chuche(id, nombre, descripcion, precio, foto,ingredientes):
+def actualizar_pelicula(id, nombre, descripcion, precio, foto,ingredientes):
     try:
         conexion = obtener_conexion()
         with conexion.cursor() as cursor:
-            cursor.execute("UPDATE chuches SET nombre = %s, descripcion = %s, precio = %s, foto=%s, ingredientes=%s WHERE id = %s",
+            cursor.execute("UPDATE peliculas SET nombre = %s, descripcion = %s, precio = %s, foto=%s, ingredientes=%s WHERE id = %s",
                        (nombre, descripcion, precio, foto,ingredientes,id))
             if cursor.rowcount == 1:
                 ret={"status": "OK" }
@@ -99,7 +99,7 @@ def actualizar_chuche(id, nombre, descripcion, precio, foto,ingredientes):
         conexion.close()
         code=200
     except:
-        app.logger.info("Excepcion al actualziar una chuche")
+        app.logger.info("Excepcion al actualziar una pelicula")
         ret = {"status": "Failure" }
         code=500
     return ret,code

@@ -34,7 +34,7 @@
                     if (result.status=="OK"){
                         sessionStorage.setItem("csrf_token",result.csrf_token)
                         sessionStorage.setItem("perfil",result.perfil)
-                        location.href="chuches.html";
+                        location.href="peliculas.html";
                     } else {
                         document.getElementsByClassName("error")[0].style.display="block";
                     }
