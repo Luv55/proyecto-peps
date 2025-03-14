@@ -1,5 +1,5 @@
-from __future__ import print_function
 from bd import obtener_conexion
+from __main__ import app
 import sys
 from funciones_auxiliares import sanitize_input
 
@@ -17,7 +17,7 @@ def insertar_pelicula(nombre, descripcion, precio,foto):
         conexion.commit()
         conexion.close()
     except:
-        print("Excepcion al insertar un pelicula", file=sys.stdout)
+        app.logger.info("Excepcion al insertar un pelicula", file=sys.stdout)
         ret = {"status": "Failure" }
         code=500
     return ret,code
@@ -54,7 +54,7 @@ def obtener_peliculas():
         conexion.close()
         code=200
     except:
-        print("Excepcion al obtener los peliculas", file=sys.stdout)
+        app.logger.info("Excepcion al obtener los peliculas")
         peliculasjson=[]
         code=500
     return peliculasjson,code
@@ -72,7 +72,7 @@ def obtener_pelicula_por_id(id):
         conexion.close()
         code=200
     except:
-        print("Excepcion al recuperar un pelicula", file=sys.stdout)
+        app.logger.info("Excepcion al recuperar un pelicula")
         code=500
     return peliculajson,code
 
@@ -90,7 +90,7 @@ def eliminar_pelicula(id):
         conexion.close()
         code=200
     except:
-        print("Excepcion al eliminar un pelicula", file=sys.stdout)
+        papp.logger.info("Excepcion al eliminar una pelicula")
         ret = {"status": "Failure" }
         code=500
     return ret,code
@@ -109,7 +109,7 @@ def actualizar_pelicula(id, nombre, descripcion, precio, foto):
         conexion.close()
         code=200
     except:
-        print("Excepcion al eliminar un pelicula", file=sys.stdout)
+        app.logger.info("Excepcion al eliminar un pelicula")
         ret = {"status": "Failure" }
         code=500
     return ret,code
