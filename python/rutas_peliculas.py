@@ -1,13 +1,13 @@
 from flask import request, session, make_response
 import json
 from __main__ import app
-import controlador_chuches
+import python.controlador_peliculas as controlador_peliculas
 from funciones_auxiliares import Encoder, sanitize_input, prepare_response_extra_headers,validar_session_admin,validar_session_normal
 
 @app.route("/chuches",methods=["GET"])
 def chuches():
     if (validar_session_normal()):
-        respuesta,code= controlador_chuches.obtener_chuches()
+        respuesta,code= controlador_peliculas.obtener_chuches()
     else:
         respuesta={"status":"Forbidden"}
         code=403
@@ -19,7 +19,7 @@ def chuche_por_id(id):
     id = sanitize_input(id)
     if isinstance(id, str) and len(id)<64:
         if (validar_session_normal()):
-            respuesta,code = controlador_chuches.obtener_chuche_por_id(id)
+            respuesta,code = controlador_peliculas.obtener_chuche_por_id(id)
         else:
             respuesta={"status":"Forbidden"}
             code=403
@@ -43,7 +43,7 @@ def guardar_chuche():
             if isinstance(nombre, str) and isinstance(descripcion, str) and isinstance(foto, str) and isinstance(ingredientes, str) and len(nombre)<128 and len(descripcion)<512 and len(foto)<128 and len(ingredientes)<512:
                 if (validar_session_admin()):
                     precio = float(precio)
-                    respuesta,code=controlador_chuches.insertar_chuche(nombre, descripcion,precio,foto,ingredientes)
+                    respuesta,code=controlador_peliculas.insertar_chuche(nombre, descripcion,precio,foto,ingredientes)
                 else: 
                     respuesta={"status":"Forbidden"}
                     code=403
@@ -62,7 +62,7 @@ def guardar_chuche():
 @app.route("/chuches/<int:id>", methods=["DELETE"])
 def eliminar_chuche(id):
     if (validar_session_admin()):
-        respuesta,code=controlador_chuches.eliminar_chuche(id)
+        respuesta,code=controlador_peliculas.eliminar_chuche(id)
     else: 
         respuesta={"status":"Forbidden"}
         code=403
@@ -85,7 +85,7 @@ def actualizar_chuche():
                 id=int(id)
                 precio=float(precio)
                 if (validar_session_normal()):
-                    respuesta,code=controlador_chuches.actualizar_chuche(id,nombre,descripcion,precio,foto,ingredientes)
+                    respuesta,code=controlador_peliculas.actualizar_chuche(id,nombre,descripcion,precio,foto,ingredientes)
                 else: 
                     respuesta={"status":"Forbidden"}
                     code=403
