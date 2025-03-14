@@ -31,7 +31,7 @@ services:
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
     volumes:
      - db0:/var/lib/mysql
-     - ./Chuches.sql:/docker-entrypoint-initdb.d/setup.sql
+     - ./Peliculas.sql:/docker-entrypoint-initdb.d/setup.sql
     secrets:
       - db_root_password
 
