@@ -1,56 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APP PEPS</title>
-    <style>
-        .error{
-            display: none;
-            color: red;
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro - APP PEPS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
+  <style>
+    .error-message {
+      display: none;
+    }
+  </style>
+  <script>
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    function conectar() {
+      document.getElementById("error").style.display = "none";
+
+      const raw = JSON.stringify({
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        email: document.getElementById("email").value,
+        profile: document.getElementById("profile").value
+      });
+
+      fetch("/api/registro", {
+        method: "POST",
+        headers: myHeaders,
+        body: raw
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === "OK") {
+          alert("Usuario registrado correctamente");
+          location.href = "index.html";
+        } else {
+          document.getElementById("error").style.display = "block";
         }
-    </style>
-    <script>
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        function conectar(){
-            document.getElementsByClassName("error")[0].style.display="none";
-            var raw = JSON.stringify({
-                "username": document.getElementById("username").value,
-                "password": document.getElementById("password").value,
-                "email": document.getElementById("email").value,
-                "profile": document.getElementById("profile").value
-            });
-
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw
-            };
-
-            fetch("/api/registro", requestOptions)
-                .then(response => response.json())
-                .then(result => {
-                    if (result.status=="OK"){
-                        alert("Usuario registrado correctamente");
-                        location.href="index.html";
-                    } else {
-                        document.getElementsByClassName("error")[0].style.display="block";
-                    }
-                })
-                .catch(error => console.log('error', error)); 
-        }
-    </script>
+      })
+      .catch(error => console.error("Error:", error));
+    }
+  </script>
 </head>
+
 <body>
-    <h1>REGISTRO DEL SISTEMA</h1>
-    <label>Usuario</label><input type="text" name="username" id="username" required><br>
-    <label>Clave</label><input type="password" name="password" id="password" required><br>
-    <label>Correo</label><input type="email" name="email" id="email" required><br>
-    <label>Perfil</label><input type="text" disabled name="profile" id="profile" value="normal"><br>
-    <label class="error">Usuario ya existe</label>
-    <button type="button" onclick="conectar()">ENVIAR</button>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+          <div class="box">
+            <h1 class="title has-text-centered has-text-info">📝 Registro de Usuario</h1>
+
+            <div class="field">
+              <label class="label">Usuario</label>
+              <div class="control">
+                <input class="input" type="text" id="username" required placeholder="Introduce tu nombre de usuario" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Contraseña</label>
+              <div class="control">
+                <input class="input" type="password" id="password" required placeholder="Introduce tu contraseña" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Correo electrónico</label>
+              <div class="control">
+                <input class="input" type="email" id="email" required placeholder="ejemplo@correo.com" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Perfil</label>
+              <div class="control">
+                <input class="input" type="text" id="profile" value="normal" disabled />
+              </div>
+            </div>
+
+            <p id="error" class="error-message has-text-danger has-text-weight-semibold mb-4">⚠️ Usuario ya existe</p>
+
+            <div class="buttons is-centered">
+              <button class="button is-success" onclick="conectar()">Registrarse</button>
+              <button class="button is-light" onclick="location.href='index.html'">Volver al inicio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
