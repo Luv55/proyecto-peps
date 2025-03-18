@@ -23,3 +23,118 @@
 [2025-03-14 11:24:30,782] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:24:30] "GET /peliculas HTTP/1.1" 200 -
 [2025-03-14 11:25:52,624] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 192.168.48.5
 [2025-03-14 11:25:52,625] INFO in _internal: 192.168.48.5 - - [14/Mar/2025 11:25:52] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:41:20,448] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.23.0.3:8080
+[2025-03-18 09:41:20,448] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-03-18 09:41:55,107] INFO in app: path: /login | method: POST | status: 200 OK | size: 55 >>> 172.23.0.5
+[2025-03-18 09:41:55,108] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:41:55] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:41:57,248] INFO in app: path: /login | method: POST | status: 200 OK | size: 55 >>> 172.23.0.5
+[2025-03-18 09:41:57,249] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:41:57] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:42:10,986] INFO in controlador_usuarios: Nuevo usuario creado
+[2025-03-18 09:42:10,986] INFO in app: path: /registro | method: POST | status: 200 OK | size: 16 >>> 172.23.0.5
+[2025-03-18 09:42:10,986] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:42:10] "POST /registro HTTP/1.1" 200 -
+[2025-03-18 09:42:18,219] INFO in controlador_usuarios: Acceso usuario marki correcto
+[2025-03-18 09:42:18,222] INFO in app: path: /login | method: POST | status: 200 OK | size: 145 >>> 172.23.0.5
+[2025-03-18 09:42:18,223] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:42:18] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:42:18,275] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:42:18,276] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:42:18] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:42:36,686] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:42:36,687] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:42:36] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:43:53,585] INFO in app: path: /login | method: POST | status: 200 OK | size: 55 >>> 172.23.0.5
+[2025-03-18 09:43:53,586] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:43:53] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:44:18,325] INFO in controlador_usuarios: Acceso usuario marki correcto
+[2025-03-18 09:44:18,325] INFO in app: path: /login | method: POST | status: 200 OK | size: 145 >>> 172.23.0.5
+[2025-03-18 09:44:18,326] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:44:18] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:44:18,394] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:44:18,394] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:44:18] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:45:04,302] INFO in controlador_usuarios: Acceso usuario marki correcto
+[2025-03-18 09:45:04,302] INFO in app: path: /login | method: POST | status: 200 OK | size: 145 >>> 172.23.0.5
+[2025-03-18 09:45:04,303] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:04] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:45:04,420] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:45:04,420] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:04] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:45:10,062] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:45:10,063] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:10] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:45:23,331] INFO in app: path: /peliculas | method: GET | status: 403 FORBIDDEN | size: 23 >>> 172.23.0.5
+[2025-03-18 09:45:23,332] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:23] "[31m[1mGET /peliculas HTTP/1.1[0m" 403 -
+[2025-03-18 09:45:32,990] INFO in controlador_usuarios: Acceso usuario marki correcto
+[2025-03-18 09:45:32,991] INFO in app: path: /login | method: POST | status: 200 OK | size: 145 >>> 172.23.0.5
+[2025-03-18 09:45:32,992] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:32] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:45:33,027] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:45:33,027] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:33] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:45:46,559] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:45:46,560] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:45:46] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:50:27,164] INFO in controlador_usuarios: Acceso usuario root correcto
+[2025-03-18 09:50:27,166] INFO in app: path: /login | method: POST | status: 200 OK | size: 144 >>> 172.23.0.5
+[2025-03-18 09:50:27,167] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:50:27] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:50:27,194] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:50:27,195] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:50:27] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:53:49,537] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:53:49,537] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:53:49] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:53:56,475] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:53:56,477] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:53:56] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:53:57,378] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.23.0.5
+[2025-03-18 09:53:57,379] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:53:57] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:53:58,207] INFO in app: path: /logout | method: GET | status: 200 OK | size: 16 >>> 172.23.0.5
+[2025-03-18 09:53:58,208] INFO in _internal: 172.23.0.5 - - [18/Mar/2025 09:53:58] "GET /logout HTTP/1.1" 200 -
+[2025-03-18 09:54:17,614] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.25.0.4:8080
+[2025-03-18 09:54:17,614] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-03-18 09:54:35,837] INFO in app: path: /login | method: POST | status: 200 OK | size: 55 >>> 172.25.0.5
+[2025-03-18 09:54:35,838] INFO in _internal: 172.25.0.5 - - [18/Mar/2025 09:54:35] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:54:39,445] INFO in controlador_usuarios: Acceso usuario root correcto
+[2025-03-18 09:54:39,446] INFO in app: path: /login | method: POST | status: 200 OK | size: 144 >>> 172.25.0.5
+[2025-03-18 09:54:39,447] INFO in _internal: 172.25.0.5 - - [18/Mar/2025 09:54:39] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:54:39,515] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 2 >>> 172.25.0.5
+[2025-03-18 09:54:39,516] INFO in _internal: 172.25.0.5 - - [18/Mar/2025 09:54:39] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:55:26,858] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 16 >>> 172.25.0.5
+[2025-03-18 09:55:26,860] INFO in _internal: 172.25.0.5 - - [18/Mar/2025 09:55:26] "POST /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:55:28,179] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.25.0.5
+[2025-03-18 09:55:28,181] INFO in _internal: 172.25.0.5 - - [18/Mar/2025 09:55:28] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:49,445] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.27.0.3:8080
+[2025-03-18 09:58:49,445] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-03-18 09:58:50,748] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:50,749] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:50] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:51,813] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:51,815] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:51] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:52,214] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:52,215] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:52] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:52,563] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:52,564] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:52] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:52,964] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:52,966] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:52] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:53,310] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:53,311] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:53] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:53,609] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:53,611] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:53] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:58:54,044] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:58:54,045] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:58:54] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 09:59:02,784] INFO in app: path: /logout | method: GET | status: 200 OK | size: 16 >>> 172.27.0.5
+[2025-03-18 09:59:02,785] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:59:02] "GET /logout HTTP/1.1" 200 -
+[2025-03-18 09:59:18,712] INFO in app: path: /peliculas | method: GET | status: 403 FORBIDDEN | size: 23 >>> 172.27.0.5
+[2025-03-18 09:59:18,714] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:59:18] "[31m[1mGET /peliculas HTTP/1.1[0m" 403 -
+[2025-03-18 09:59:25,152] INFO in controlador_usuarios: Acceso usuario root correcto
+[2025-03-18 09:59:25,153] INFO in app: path: /login | method: POST | status: 200 OK | size: 144 >>> 172.27.0.5
+[2025-03-18 09:59:25,154] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:59:25] "POST /login HTTP/1.1" 200 -
+[2025-03-18 09:59:25,220] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 202 >>> 172.27.0.5
+[2025-03-18 09:59:25,220] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 09:59:25] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:00:19,554] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 16 >>> 172.27.0.5
+[2025-03-18 10:00:19,555] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:00:19] "POST /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:00:20,771] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 455 >>> 172.27.0.5
+[2025-03-18 10:00:20,772] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:00:20] "GET /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:01:04,707] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 25 >>> 172.27.0.5
+[2025-03-18 10:01:04,708] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:01:04] "POST /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:01:07,594] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 25 >>> 172.27.0.5
+[2025-03-18 10:01:07,595] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:01:07] "POST /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:01:26,534] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 25 >>> 172.27.0.5
+[2025-03-18 10:01:26,535] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:01:26] "POST /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:01:59,939] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 16 >>> 172.27.0.5
+[2025-03-18 10:01:59,940] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:01:59] "POST /peliculas HTTP/1.1" 200 -
+[2025-03-18 10:02:01,305] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 710 >>> 172.27.0.5
+[2025-03-18 10:02:01,305] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:02:01] "GET /peliculas HTTP/1.1" 200 -
