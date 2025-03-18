@@ -23,3 +23,7 @@ CREATE TABLE usuarios(
     debeCambiarClave BOOLEAN
 );
 INSERT INTO `usuarios` (`usuario`, `clave`, `perfil`,`estado`, `correo`,`numeroAccesosErroneo`,`fechaUltimoAcceso`) VALUES ('root','$2b$10$hJtLt4u0SqSf.h3S5Uuev.nu98ARhn.6SpvFCYbc1eeynJmy81cmK', 'admin', 'activo','root@pp.es', 0, '2022-03-01 00:00');
+INSERT INTO peliculas (nombre, descripcion, precio, foto, reparto) VALUES
+('Batman', 'Batman en Gotham', 9.99, 'https://via.placeholder.com/70x100?text=Inception', 'Batman, Catwoman'),
+('Superman', 'Superman que vuela que te cagas', 11.50, 'https://via.placeholder.com/70x100?text=Interstellar', 'Superman, Superwoman'),
+('Spiderman', 'Spiderman que se pega por las paredes', 8.75, 'https://via.placeholder.com/70x100?text=Matrix', 'Spiderman, Tio Ben');
