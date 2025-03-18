@@ -38,7 +38,7 @@
                         <td>${pelicula.descripcion}</td>
                         <td>${pelicula.reparto}</td>
                         <td>${pelicula.precio}</td>
-                        <td>${pelicula.precio}</td>
+                        <td>${(pelicula.precio * 1.21).toFixed(2)} €</td>
                         <td>`
                 if (perfil=="admin"){
                     texto+=`<a href="editar_pelicula.html?id=${pelicula.id}" class="button is-info">Editar</a>
@@ -83,15 +83,15 @@
                 .then(response => response.json())
                 .then(result => {
                     if (result.status == "OK"){
-                        alert("Pelicula eliminado")
+                        alert("Pelicula eliminada")
                         pedirPeliculas();
                     } else {
-                        alert("La pelicula no ha podido ser eliminado")
+                        alert("La pelicula no ha podido ser eliminada")
                     }
                 })
                 .catch(error => {
                     console.log('error', error);
-                    alert("Se ha producido un error y la pelicula no ha podido ser eliminado")
+                    alert("Se ha producido un error y la pelicula no ha podido ser eliminad")
                 });
         }
         function cerrarSesion(){
@@ -149,7 +149,7 @@
                             <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
-                            <th>reparto</th>
+                            <th>Reparto</th>
                             <th>Precio</th>
                             <th>PrecioIVA</th>
                             <th>Editar</th>
