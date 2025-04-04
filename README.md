@@ -1,6 +1,6 @@
 \Para que funcione correctamente todo, copiar y pegar el siguiente one-liner:
 
 ```bash
-docker-compose down -v; chmod -R 755 *; chmod 644 Peliculas.sql; chown $USER:$USER Peliculas.sql; docker-compose up --build
+docker-compose down -v; chmod -R 777 *; docker-compose up --build
 ```
-Accedemos a la web con el enlace http://localhost:7777 y con credenciales por defecto root:1234
+Accedemos a la web con el enlace http://localhost:6106 y con credenciales por defecto root:1234

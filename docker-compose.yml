@@ -40,7 +40,7 @@ services:
     container_name: phpmyadmin0
     restart: always
     ports:
-      - 6100:80
+      - 7106:80
     environment:
       PMA_ARBITRARY: 1
       PMA_HOST: db
@@ -53,7 +53,7 @@ services:
     build: ./apache/ #./waf/ en un futuro
     ports:
       - 443:443
-      - 6000:80
+      - 6106:80
     depends_on:
       - python
     links:
