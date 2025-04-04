@@ -172,3 +172,25 @@
 [2025-04-04 09:49:37,923] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:37] "DELETE /peliculas/4 HTTP/1.1" 200 -
 [2025-04-04 09:49:38,897] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 569 >>> 192.168.32.5
 [2025-04-04 09:49:38,898] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:38] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 10:18:44,983] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.64.4:8080
+[2025-04-04 10:18:44,984] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-04-04 10:19:04,506] INFO in app: path: /login | method: POST | status: 500 INTERNAL SERVER ERROR | size: 19 >>> 192.168.64.5
+[2025-04-04 10:19:04,507] INFO in _internal: 192.168.64.5 - - [04/Apr/2025 10:19:04] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+[2025-04-04 10:19:05,262] INFO in app: path: /login | method: POST | status: 500 INTERNAL SERVER ERROR | size: 19 >>> 192.168.64.5
+[2025-04-04 10:19:05,263] INFO in _internal: 192.168.64.5 - - [04/Apr/2025 10:19:05] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+[2025-04-04 10:20:02,796] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.80.3:8080
+[2025-04-04 10:20:02,796] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-04-04 10:20:06,749] INFO in app: path: /login | method: POST | status: 500 INTERNAL SERVER ERROR | size: 19 >>> 192.168.80.5
+[2025-04-04 10:20:06,751] INFO in _internal: 192.168.80.5 - - [04/Apr/2025 10:20:06] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+[2025-04-04 10:20:07,279] INFO in app: path: /login | method: POST | status: 500 INTERNAL SERVER ERROR | size: 19 >>> 192.168.80.5
+[2025-04-04 10:20:07,280] INFO in _internal: 192.168.80.5 - - [04/Apr/2025 10:20:07] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+[2025-04-04 10:20:07,652] INFO in app: path: /login | method: POST | status: 500 INTERNAL SERVER ERROR | size: 19 >>> 192.168.80.5
+[2025-04-04 10:20:07,653] INFO in _internal: 192.168.80.5 - - [04/Apr/2025 10:20:07] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+[2025-04-04 10:20:13,701] INFO in app: path: /login | method: POST | status: 500 INTERNAL SERVER ERROR | size: 19 >>> 192.168.80.5
+[2025-04-04 10:20:13,702] INFO in _internal: 192.168.80.5 - - [04/Apr/2025 10:20:13] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
