@@ -138,3 +138,37 @@
 [2025-03-18 10:01:59,940] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:01:59] "POST /peliculas HTTP/1.1" 200 -
 [2025-03-18 10:02:01,305] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 710 >>> 172.27.0.5
 [2025-03-18 10:02:01,305] INFO in _internal: 172.27.0.5 - - [18/Mar/2025 10:02:01] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:42:00,950] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.27.0.3:8080
+[2025-04-04 09:42:00,950] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-04-04 09:43:22,359] INFO in app: path: /peliculas | method: GET | status: 403 FORBIDDEN | size: 23 >>> 172.27.0.5
+[2025-04-04 09:43:22,360] INFO in _internal: 172.27.0.5 - - [04/Apr/2025 09:43:22] "[31m[1mGET /peliculas HTTP/1.1[0m" 403 -
+[2025-04-04 09:43:28,225] INFO in controlador_usuarios: Acceso usuario root correcto
+[2025-04-04 09:43:28,228] INFO in app: path: /login | method: POST | status: 200 OK | size: 144 >>> 172.27.0.5
+[2025-04-04 09:43:28,228] INFO in _internal: 172.27.0.5 - - [04/Apr/2025 09:43:28] "POST /login HTTP/1.1" 200 -
+[2025-04-04 09:43:28,310] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 569 >>> 172.27.0.5
+[2025-04-04 09:43:28,311] INFO in _internal: 172.27.0.5 - - [04/Apr/2025 09:43:28] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:43:38,955] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 569 >>> 172.27.0.5
+[2025-04-04 09:43:38,956] INFO in _internal: 172.27.0.5 - - [04/Apr/2025 09:43:38] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:48:52,601] INFO in app: path: /peliculas | method: POST | status: 200 OK | size: 16 >>> 172.27.0.5
+[2025-04-04 09:48:52,602] INFO in _internal: 172.27.0.5 - - [04/Apr/2025 09:48:52] "POST /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:48:54,589] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 669 >>> 172.27.0.5
+[2025-04-04 09:48:54,590] INFO in _internal: 172.27.0.5 - - [04/Apr/2025 09:48:54] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:49:17,562] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.32.3:8080
+[2025-04-04 09:49:17,562] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-04-04 09:49:25,947] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 669 >>> 192.168.32.5
+[2025-04-04 09:49:25,948] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:25] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:49:33,890] INFO in controlador_usuarios: Acceso usuario root correcto
+[2025-04-04 09:49:33,891] INFO in app: path: /login | method: POST | status: 200 OK | size: 144 >>> 192.168.32.5
+[2025-04-04 09:49:33,891] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:33] "POST /login HTTP/1.1" 200 -
+[2025-04-04 09:49:33,975] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 669 >>> 192.168.32.5
+[2025-04-04 09:49:33,975] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:33] "GET /peliculas HTTP/1.1" 200 -
+[2025-04-04 09:49:37,922] INFO in app: path: /peliculas/4 | method: DELETE | status: 200 OK | size: 16 >>> 192.168.32.5
+[2025-04-04 09:49:37,923] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:37] "DELETE /peliculas/4 HTTP/1.1" 200 -
+[2025-04-04 09:49:38,897] INFO in app: path: /peliculas | method: GET | status: 200 OK | size: 569 >>> 192.168.32.5
+[2025-04-04 09:49:38,898] INFO in _internal: 192.168.32.5 - - [04/Apr/2025 09:49:38] "GET /peliculas HTTP/1.1" 200 -
